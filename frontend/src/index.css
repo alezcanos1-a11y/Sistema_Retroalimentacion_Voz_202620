@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  /* Paleta tropical "Lorito" */
+  --verde:    #2bb673;
+  --verde-d:  #1e9e60;
+  --amarillo: #ffc83d;
+  --coral:    #ff7a59;
+  --cielo:    #3fa9f5;
+  --morado:   #a06cf0;
+  --naranja:  #fb923c;
+
+  --bg:    #fff7e9;
+  --bg2:   #ffe9c9;
+  --card:  #ffffff;
+  --texto: #3a3340;
+  --suave: #8a8294;
+  --borde: #efe3cf;
+
+  --sombra: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --radio: 22px;
+
+  --fuente: 'Nunito', system-ui, sans-serif;
+  --titulo: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--fuente);
+  color: var(--texto);
+  background: linear-gradient(160deg, var(--bg) 0%, var(--bg2) 100%);
+  background-attachment: fixed;
+  font-size: clamp(16px, 2.6vw, 19px);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root { width: 100%; min-height: 100svh; }
+
+h1, h2, h3 { font-family: var(--titulo); color: var(--texto); margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(26px, 6vw, 40px); font-weight: 800; }
+h2 { font-size: clamp(20px, 4.5vw, 28px); font-weight: 700; }
+
+button { font-family: var(--fuente); cursor: pointer; }
+input, button, textarea { font-size: 1rem; }
+
+:focus-visible { outline: 3px solid var(--cielo); outline-offset: 2px; border-radius: 4px; }
+
+@keyframes flotar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.flotar { animation: flotar 2.6s ease-in-out infinite; }
+
+@keyframes aparecer { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.aparecer { animation: aparecer 0.35s ease-out both; }
+
+@keyframes pop { 0% { transform: scale(0.6); opacity: 0; } 70% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
+.pop { animation: pop 0.4s ease-out both; }
+
+@keyframes pulso { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.55; transform: scale(1.06); } }
+.pulso { animation: pulso 1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flotar, .aparecer, .pop, .pulso { animation: none; }
+}

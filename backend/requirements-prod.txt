@@ -1,0 +1,41 @@
+# Índice de PyTorch CPU-only (evita arrastrar 2.7 GB de librerías CUDA inútiles en prod)
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# ── Core API ──────────────────────────────────────────────────────────────────
+fastapi==0.136.1
+uvicorn==0.46.0
+python-multipart==0.0.27
+pydantic==2.13.3
+pydantic_core==2.46.3
+
+# ── Base de datos ──────────────────────────────────────────────────────────────
+sqlalchemy==2.0.41
+psycopg2-binary==2.9.10
+alembic==1.16.1
+
+# ── Auth ───────────────────────────────────────────────────────────────────────
+python-jose[cryptography]==3.5.0
+passlib[argon2]==1.7.4
+
+# ── Dimensión 1: Fluidez Mecánica y Prosodia ──────────────────────────────────
+faster-whisper==1.2.1
+praat-parselmouth==0.4.5
+ctranslate2==4.7.1
+
+# ── Dimensión 2: Claridad y Coherencia ────────────────────────────────────────
+spacy==3.8.7                # NLP español: lematización, muletillas, TTR
+transformers==4.46.3        # BETO para coherencia semántica
+torch==2.6.0+cpu            # backend de transformers (CPU-only, sin CUDA)
+# Tras instalar, descargar el modelo spaCy:
+#   python -m spacy download es_core_news_sm
+
+# ── Audio utils ────────────────────────────────────────────────────────────────
+av==17.0.1
+numpy==2.4.4
+
+# ── Utilidades ─────────────────────────────────────────────────────────────────
+python-dotenv==1.1.0
+huggingface_hub==0.34.4   # <1.0 por compatibilidad con transformers
+loguru==0.7.3             # logging estructurado + manejo global de errores
+reportlab==4.2.5          # Generación de reportes PDF de desempeño
+anthropic==0.111.0        # HU-25: consejos con IA generativa (Claude Haiku); opcional
